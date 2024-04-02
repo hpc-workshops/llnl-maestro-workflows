@@ -44,9 +44,10 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
 
       - name: "Setup Lesson Engine"
-        uses: carpentries/actions/setup-sandpaper@main
-        with:
-          cache-version: ${{ secrets.CACHE_VERSION }}
+        uses: actions/checkout@v4
+       # uses: carpentries/actions/setup-sandpaper@main
+       # with:
+       #   cache-version: ${{ secrets.CACHE_VERSION }}
 
           
 
