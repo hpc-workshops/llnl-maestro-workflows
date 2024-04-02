@@ -59,8 +59,13 @@ contact: 'maintainers-hpc@lists.carpentries.org' # FIXME
 
 # Order of episodes in your lesson
 episodes: 
-- introduction.md
-
+- 01-introduction.md
+- 02-maestro_on_the_cluster.md
+- 03-maestro-and-mpi.md
+- 04-placeholders.md
+- 05-chaining_rules.md
+- 06-multiple-parameters.md  
+     
 # Information for Learners
 learners: 
 
