@@ -45,7 +45,7 @@ jobs:
 
       - name: "Setup Lesson Engine"
        # uses: actions/checkout@v4
-        uses: carpentries/actions/setup-sandpaper@use-node20
+        uses: xorJane/actions/setup-sandpaper@use-node20
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
@@ -53,7 +53,7 @@ jobs:
 
       - name: "Setup Package Cache"
        # uses: actions/checkout@v4
-        uses: carpentries/actions/setup-lesson-deps@use-node20
+        uses: xorJane/actions/setup-lesson-deps@use-node20
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
