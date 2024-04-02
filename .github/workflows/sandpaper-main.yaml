@@ -45,17 +45,17 @@ jobs:
 
       - name: "Setup Lesson Engine"
        # uses: actions/checkout@v4
-        uses: carpentries/actions/setup-sandpaper@main
-       # with:
-       #   cache-version: ${{ secrets.CACHE_VERSION }}
+        uses: carpentries/actions/setup-sandpaper@use-node20
+        with:
+          cache-version: ${{ secrets.CACHE_VERSION }}
 
           
 
       - name: "Setup Package Cache"
-        uses: actions/checkout@v4
-      #- uses: carpentries/actions/setup-lesson-deps@main
-      #  with:
-      #    cache-version: v4 # ${{ secrets.CACHE_VERSION }}
+       # uses: actions/checkout@v4
+        uses: carpentries/actions/setup-lesson-deps@use-node20
+        with:
+          cache-version: ${{ secrets.CACHE_VERSION }}
 
       - name: "Deploy Site"
         run: |
