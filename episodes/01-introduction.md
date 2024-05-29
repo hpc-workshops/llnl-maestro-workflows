@@ -5,13 +5,16 @@ exercises: 30
 ---
 
 ::: questions
+
 - "How do I run a simple command with Maestro?"
+
 :::
 
 :::objectives
-- "Create a Maestro YAML file"
-:::
 
+- "Create a Maestro YAML file"
+
+:::
 
 ## What is the workflow I'm interested in?
 
@@ -35,8 +38,9 @@ and see how we can run that via Maestro. Let's choose the command `hostname`
 which prints out the name of the host where the command is executed:
 
 ```bash
-janeh@pascal83:~$ hostname
+hostname
 ```
+
 ```output
 pascal83
 ```
@@ -50,21 +54,26 @@ janeh@pascal83:~$ hostname > hostname_login.txt
 
 ## Writing a Maestro YAML
 
-Edit a new text file named `hostname.yaml`.
+Edit a new text file named `hostname.yaml`. The file extension is a recursive
+initialism for ["YAML Ain't Markup Language"][yaml-lang], a popular format for
+configuration files and key-value data serialization. For more, see the
+Wikipedia page, esp. [YAML Syntax](https://en.wikipedia.org/wiki/YAML#Syntax).
 
-Contents of `hostname.yaml`:
+[yaml-lang]: https://yaml.org
+
+Contents of `hostname.yaml` (spaces matter!):
 
 ```yml
 description:
-    name: Hostnames
-    description: Report a node's hostname.
+  name: Hostnames
+  description: Report a node's hostname.
 
 study:
-    - name: hostname-login
-      description: Write the login node's hostname to a file
-      run:
-          cmd: |
-              hostname > hostname_login.txt
+  - name: hostname-login
+    description: Write the login node's hostname to a file.
+    run:
+      cmd: |
+        hostname > hostname_login.txt
 ```
 
 ::: callout
@@ -76,15 +85,14 @@ study:
    it to `hostname` or `foo.txt`.
 1. The file specifies fields in a hierarchy. For example, `name`, `description`,
    and `run` are all passed to `study` and are at the same level in the hierarchy.
-   `description` and `study` are both at the top level in the hierarchy. 
-1. Indentation indicates the hierarchy and should be consistent. For example, all
-   the fields passed directly to `study` are indented relative to `study` and
-   their indentation is all the same. 
+   `description` and `study` are both at the top level in the hierarchy.
+1. Indentation indicates the hierarchy and should be consistent. For example,
+   all the fields passed directly to `study` are indented relative to `study`
+   and their indentation is all the same.
 1. The commands executed during the study are given under `cmd`. Starting this
    entry with `|` and a newline character allows us to specify multiple commands.
 1. The example YAML file above is pretty minimal; all fields shown are required.
 1. The names given to `study` can include letters, numbers, and special characters.
-
 
 :::
 
@@ -92,7 +100,7 @@ Back in the shell we'll run our new rule. At this point, we may see an error if
 a required field is missing or if our indentation is inconsistent.
 
 ```bash
-$ maestro run hostname.yaml
+janeh@pascal83:~$ maestro run hostname.yaml
 ```
 
 ::: callout
@@ -102,13 +110,13 @@ $ maestro run hostname.yaml
 If your shell tells you that it cannot find the command `maestro` then we need
 to make the software available somehow. In our case, this means activating the
 python virtual environment where maestro is installed.
+
 ```bash
 source /usr/global/docs/training/janeh/maestro_venv/bin/activate
 ```
 
 You can tell this command has already been run when `(maestro_venv)` appears
 before your command prompt:
-
 
 ```bash
 janeh@pascal83:~$ source /usr/global/docs/training/janeh/maestro_venv/bin/activate
@@ -121,11 +129,12 @@ command should be available, but let's double check
 ```bash
 (maestro_venv) janeh@pascal83:~$ which maestro
 ```
+
 ```output
 /usr/global/docs/training/janeh/maestro_venv/bin/maestro
 ```
-:::
 
+:::
 
 ## Running maestro
 
@@ -134,6 +143,9 @@ and enter `y` when prompted
 
 ```bash
 (maestro_venv) janeh@pascal83:~$ maestro run hostname.yaml
+```
+
+``` output
 [2024-03-20 15:39:34: INFO] INFO Logging Level -- Enabled
 [2024-03-20 15:39:34: WARNING] WARNING Logging Level -- Enabled
 [2024-03-20 15:39:34: CRITICAL] CRITICAL Logging Level -- Enabled
@@ -148,7 +160,7 @@ Submission throttle limit = 0
 Use temporary directory =   False
 Hash workspaces =           False
 Dry run enabled =           False
-Output path =               /g/g0/janeh/Hostnames_20240320-153934
+Output path =               ~/Hostnames_20240320-153934
 ------------------------------------------
 Would you like to launch the study? [yn] y
 Study launched successfully.
@@ -166,14 +178,18 @@ for that study
 (maestro_venv) janeh@pascal83:~$ cd Hostnames_20240320-153934/
 (maestro_venv) janeh@pascal83:~/Hostnames_20240320-153934$ ls
 ```
+
 ```output
 batch.info      Hostnames.pkl        Hostnames.txt  logs  status.csv
 hostname-login  Hostnames.study.pkl  hostname.yaml  meta
 ```
+
 ```bash
 (maestro_venv) janeh@pascal83:~/Hostnames_20240320-153934$ cd hostname-login/
 (maestro_venv) janeh@pascal83:~/Hostnames_20240320-153934/hostname-login$ ls
-```output
+```
+
+``` output
 hostname-login.2284862.err  hostname-login.2284862.out  hostname-login.sh  hostname_login.txt
 ```
 
@@ -181,10 +197,10 @@ hostname-login.2284862.err  hostname-login.2284862.out  hostname-login.sh  hostn
 
 To which file will the login node's hostname, `pascal83`, be written?
 
-1. hostname-login.2284862.err
-2. hostname-login.2284862.out
-3. hostname-login.sh
-4. hostname_login.txt
+1. `hostname-login.2284862.err`
+2. `hostname-login.2284862.out`
+3. `hostname-login.sh`
+4. `hostname_login.txt`
 
 :::::: solution
 (4) hostname_login.txt
@@ -198,36 +214,36 @@ we'll see that output, if the run worked!
 ::: challenge
 
 This one is tricky! In the example above, `pascal83` was written to
-`.../Hostnames_{date}_{time}/hostname-login/hostname_login.txt`.
+`~/Hostnames_{date}_{time}/hostname-login/hostname_login.txt`.
 
 Where would `Hello` be written for the following YAML?
 
 ```yml
 description:
-    name: MyHello
-    description: Report a node's hostname.
+  name: MyHello
+  description: Report a node's hostname.
 
 study:
-    - name: give-salutation
-      description: Write the login node's hostname to a file
-      run:
-          cmd: |
-              echo "hello" > greeting.txt
+  - name: give-salutation
+    description: Write the login node's hostname to a file
+    run:
+      cmd: |
+        echo "hello" > greeting.txt
 ```
 
-
-1. `.../give-salutation_{date}_{time}/greeting/greeting.txt`
-2. `.../greeting_{date}_{time}/give_salutation/greeting.txt`
-3. `.../MyHello_{date}_{time}/give-salutation/greeting.txt`
-4. `.../MyHello_{date}_{time}/greeting/greeting.txt`
+1. `~/give-salutation_{date}_{time}/greeting/greeting.txt`
+2. `~/greeting_{date}_{time}/give_salutation/greeting.txt`
+3. `~/MyHello_{date}_{time}/give-salutation/greeting.txt`
+4. `~/MyHello_{date}_{time}/greeting/greeting.txt`
 
 :::::: solution
 
 (3) `.../MyHello_{date}_{time}/give-salutation/greeting.txt`
 
-The toplevel folder created starts with the `name` field under `description`; here, that's `MyHello`.
-Its subdirectory is named after the `study`; here, that's `give-salutation`.
-The file created is `greeting.txt` and this stores the output of `echo "hello"`.
+The toplevel folder created starts with the `name` field under `description`;
+here, that's `MyHello`. Its subdirectory is named after the `study`; here,
+that's `give-salutation`. The file created is `greeting.txt` and this stores
+the output of `echo "hello"`.
 
 ::::::
 :::
@@ -236,6 +252,7 @@ The file created is `greeting.txt` and this stores the output of `echo "hello"`.
 
 - "You execute `maestro run` with a YAML file including information about your run."
 - "Your run includes a description and at least one study (a step in your run)."
-- "Your maestro run creates a directory with subdirectories and outputs for each study."
+- "Your maestro run creates a directory with subdirectories and outputs for
+  each study."
 
 :::
