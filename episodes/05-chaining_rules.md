@@ -492,7 +492,8 @@ from a previous run of `amdahl.yaml`.
 
 The resulting JPEG should look something like
 
-![Scaling study result showing good speedup](files/example-scaling-plot.jpg)
+![Scaling study for 95% parallel task](files/example-scaling-plot.jpg){
+alt="Scaling study for 95% parallel task"}
 
 ::::::
 :::
