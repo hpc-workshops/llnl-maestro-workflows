@@ -199,8 +199,23 @@ study:
           walltime: "00:00:30"
 ```
 
-In your output file `amdahl.out`, you probably still see something
-like
+In the study folder, `amdahl.slurm.sh` will look something like
+
+``` bash
+#!/bin/bash
+#SBATCH --nodes=2
+#SBATCH --partition=pdebug
+#SBATCH --account=guests
+#SBATCH --time=00:01:00
+#SBATCH --job-name="amdahl"
+#SBATCH --output="amdahl.out"
+#SBATCH --error="amdahl.err"
+#SBATCH --comment "run Amdahl on the cluster"
+
+amdahl >> amdahl.out
+```
+
+and in `amdahl.out`, you probably see something like
 
 ```output
 Doing 30.000000 seconds of 'work' on 1 processor,
@@ -221,9 +236,10 @@ only one process. We requested two processes, but only a single one
 reports back! Additionally, we requested two _nodes_, but only one
 is mentioned in the above output (`pascal17`).
 
-So what's going on? If your job were really _using_ both tasks
-and nodes that were assigned to it, then both would have written
-to `amdahl.out`.
+So what's going on?
+
+If your job were really _using_ both tasks and nodes that were
+assigned to it, then both would have written to `amdahl.out`.
 
 The `amdahl` binary is enabled to run in parallel but it's also able
 to run in serial. If we want it to run in parallel, we'll have to tell
@@ -499,16 +515,16 @@ You will see this parameter if you run `maestro run --help`.
 
 ::: challenge
 
-Do a couple `dry-run`s using the script created in the last challenge. This
+Do a couple `dry` runs using the script created in the last challenge. This
 should help you verify that a new directory "Episode3" gets created for runs
 from this episode.
 
-__Note__: `--dry-run` is an input for `maestro run`, __not__ for `amdahl`. To
+__Note__: `--dry` is an input for `maestro run`, __not__ for `amdahl`. To
 do a dry run, you shouldn't need to update your YAML file at all. Instead, you
 just run
 
 ```bash
-maestro run --dry-run «YAML filename»
+maestro run --dry «YAML filename»
 ```
 
 :::::: solution
