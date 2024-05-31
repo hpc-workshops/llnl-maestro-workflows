@@ -14,7 +14,7 @@ exercises: 20
 
 If you've opened a new terminal, make sure Maestro is available.
 
-``` bash
+```bash
 source /usr/global/docs/training/janeh/maestro_venv/bin/activate
 ```
 
@@ -164,20 +164,20 @@ will contain subdirectories for all studies. The `hostname_batch`
 subdirectory has four output files, but this time the file ending with
 extension `.sh` is a slurm submission script
 
-``` bash
+```bash
 cd Hostnames_20240320-170150/hostname_batch
 ls
 ```
 
-``` output
+```output
 hostname.err  hostname.out  hostname.slurm.sh  hostname.txt
 ```
 
-``` bash
+```bash
 cat hostname.slurm.sh
 ```
 
-``` output
+```bash
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --partition=pvis
@@ -202,7 +202,7 @@ cd ~
 maestro run batch-hostname.yaml
 ```
 
-``` output
+```output
 [2024-03-20 17:31:37: INFO] INFO Logging Level -- Enabled
 [2024-03-20 17:31:37: WARNING] WARNING Logging Level -- Enabled
 [2024-03-20 17:31:37: CRITICAL] CRITICAL Logging Level -- Enabled
@@ -224,7 +224,7 @@ Would you like to launch the study? [yn] y
 Study launched successfully.
 ```
 
-``` bash
+```bash
 squeue -u janeh
 ```
 

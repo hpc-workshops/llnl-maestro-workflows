@@ -20,7 +20,7 @@ exercises: 20
 
 If you've opened a new terminal, make sure Maestro is available.
 
-``` bash
+```bash
 source /usr/global/docs/training/janeh/maestro_venv/bin/activate
 ```
 
@@ -202,7 +202,7 @@ study:
 In your output file `amdahl.out`, you probably still see something
 like
 
-``` output
+```output
 Doing 30.000000 seconds of 'work' on 1 processor,
 which should take 30.000000 seconds with 0.800000
 parallel proportion of the workload.
@@ -300,9 +300,9 @@ study:
 
 Your output file `Amdahl_.../amdahl/amdahl.out` should include "Doing
 30.000000 seconds of 'work' on 2 processors" and the submission script
-`Amdahl_.../amdahl/amdahl.slurm.sh` should include the line "srun -n 2
--N 2 amdahl >> amdahl.out". Maestro substituted `srun -n 2 -N 2` for
-`$(LAUNCHER)`!
+`Amdahl_.../amdahl/amdahl.slurm.sh` should include the line
+`srun -n 2 -N 2 amdahl >> amdahl.out`.
+Maestro substituted `srun -n 2 -N 2` for `$(LAUNCHER)`!
 
 ::::::
 :::
@@ -327,7 +327,7 @@ has an option that actually makes this easier for us. To see the
 `amdahl` options we can use
 
 ```bash
-(maestro_venv) janeh@pascal83:~$ amdahl --help
+amdahl --help
 ```
 
 ```output
@@ -507,8 +507,8 @@ __Note__: `--dry-run` is an input for `maestro run`, __not__ for `amdahl`. To
 do a dry run, you shouldn't need to update your YAML file at all. Instead, you
 just run
 
-``` bash
-maestro run --dry-run <YAML filename>
+```bash
+maestro run --dry-run «YAML filename»
 ```
 
 :::::: solution

@@ -24,7 +24,7 @@ exercises: 30
 
 If you've opened a new terminal, make sure Maestro is available.
 
-``` bash
+```bash
 source /usr/global/docs/training/janeh/maestro_venv/bin/activate
 ```
 

@@ -21,7 +21,7 @@ exercises: 30
 
 If you've opened a new terminal, make sure Maestro is available.
 
-``` bash
+```bash
 source /usr/global/docs/training/janeh/maestro_venv/bin/activate
 ```
 
@@ -317,7 +317,7 @@ subdirectory, you should see one output directory for each of the
 values listed for `TASKS` under `global.parameters`:
 
 ```bash
-(...)Episode4/Amdahl_<Date>_<Time>/amdahl$ ls
+ls Episode4/Amdahl_<Date>_<Time>/amdahl
 ```
 
 ```output
@@ -328,7 +328,7 @@ Each `TASKS...` subdirectory will contain the slurm submission script
 to be used if this maestro job is run:
 
 ```bash
-(...)Episode4/Amdahl_<Date>_<Time>/amdahl$ ls TASKS.18/
+ls Episode4/Amdahl_<Date>_<Time>/amdahl/TASKS.18/
 ```
 
 ```output
@@ -340,7 +340,7 @@ amdahl_TASKS.18.slurm.sh
 
 Run
 
-``` bash
+```bash
 maestro run amdahl.yaml
 ```
 

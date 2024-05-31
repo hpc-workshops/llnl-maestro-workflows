@@ -22,7 +22,7 @@ exercises: 30
 
 If you've opened a new terminal, make sure Maestro is available.
 
-``` bash
+```bash
 source /usr/global/docs/training/janeh/maestro_venv/bin/activate
 ```
 
@@ -113,7 +113,7 @@ Which step is printed first and how close together are they completed?
 You'll likely see output somewhat similar to
 
 ```bash
-(maestro_venv) janeh@pascal83:~$ cat Episode5/Dependency-exploration_20240326-143559/date-*/date.txt
+cat Episode5/Dependency-exploration_20240326-143559/date-*/date.txt
 ```
 
 ```output

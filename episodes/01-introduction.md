@@ -154,7 +154,7 @@ run `maestro run hostname.yaml` and enter `y` when prompted:
 (maestro_venv) janeh@pascal83:~$ maestro run hostname.yaml
 ```
 
-``` output
+```output
 [2024-03-20 15:39:34: INFO] INFO Logging Level -- Enabled
 [2024-03-20 15:39:34: WARNING] WARNING Logging Level -- Enabled
 [2024-03-20 15:39:34: CRITICAL] CRITICAL Logging Level -- Enabled
