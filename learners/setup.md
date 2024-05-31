@@ -2,9 +2,9 @@
 title: Setup
 ---
 
-This tutorial assumes you have access to the LC system `Quartz` (though many
-examples will reference the system `Pascal`, which offers an identical
-environment).
+This tutorial assumes you have access to the LC system [Quartz][quartz] (though
+many examples will reference the system [Pascal][pascal], which offers an
+identical environment).
 
 If you do not have access to LC systems, you will need to install the
 prerequisites yourself.
@@ -22,15 +22,13 @@ prerequisites yourself.
 
 ### If on LC
 
-If you are working on `Quartz`, Maestro is installed to the python environment
-with binaries in
-`/usr/global/docs/training/janeh/maestro_venv/bin`. Instructions for how to use
-these binaries are contained in the lesson.
+If you are working on [Quartz][quartz], [Maestro][maestro] is installed to the Python
+environment with binaries in `/usr/global/docs/training/janeh/maestro_venv/bin`.
+Instructions for how to use these binaries are contained in the lesson.
 
-You will need the python script at `/usr/global/docs/training/janeh/maestro_venv/plot_terse_amdahl_results.py`
+You will need the python script at
+`/usr/global/docs/training/janeh/maestro_venv/plot_terse_amdahl_results.py`
 or [directly from GitHub][plot_script].
-
-[plot_script]: https://github.com/carpentries-incubator/hpc-workflows/raw/main/episodes/files/plot_terse_amdahl_results.py
 
 ### If on your own
 
@@ -45,8 +43,8 @@ download the python plotting script.
 
 ### Details
 
-The application you use to connect to Quartz will depend on the type of local
-machine you're working on.
+The application you use to connect to Quartz will depend on the type
+of local machine you're working on.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -54,7 +52,7 @@ machine you're working on.
 
 ### Windows
 
-Use XWin32 or RealVNC's VNC Viewer.
+Use [XWin32][xwin] or RealVNC's [VNC Viewer][rvnc].
 
 ::::::::::::::::::::::::
 
@@ -62,7 +60,7 @@ Use XWin32 or RealVNC's VNC Viewer.
 
 ### MacOS
 
-Use Terminal.app or RealVNC's VNC Viewer.
+Use [Terminal.app][tapp] or RealVNC's [VNC Viewer][rvnc].
 
 ::::::::::::::::::::::::
 
@@ -70,6 +68,16 @@ Use Terminal.app or RealVNC's VNC Viewer.
 
 ### Linux
 
-Use Terminal or RealVNC's VNC Viewer.
+Use [Terminal][term] or RealVNC's [VNC Viewer][rvnc].
 
 ::::::::::::::::::::::::
+
+<!-- links -->
+[maestro]: https://maestrowf.readthedocs.io/en/latest/
+[pascal]: https://hpc.llnl.gov/hardware/compute-platforms/pascal
+[plot_script]: https://github.com/carpentries-incubator/hpc-workflows/raw/main/episodes/files/plot_terse_amdahl_results.py
+[quartz]: https://hpc.llnl.gov/hardware/compute-platforms/quartz
+[rvnc]: https://www.realvnc.com/en/connect/download/viewer/
+[tapp]: https://support.apple.com/guide/terminal/welcome/mac
+[term]: https://help.ubuntu.com/community/UsingTheTerminal
+[xwin]: https://www.starnet.com/xwin32/
