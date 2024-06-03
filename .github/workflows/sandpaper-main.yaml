@@ -44,14 +44,14 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
 
       - name: "Setup Lesson Engine"
-        uses: hpc-workshops/actions/setup-sandpaper@use-node20
+        uses: xorJane/actions/setup-sandpaper@use-node20
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
           
 
       - name: "Setup Package Cache"
-        uses: hpc-workshops/actions/setup-lesson-deps@use-node20
+        uses: xorJane/actions/setup-lesson-deps@use-node20
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
